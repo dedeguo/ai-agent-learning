@@ -1,0 +1,7 @@
+# Notebook interface and Python kernel
+jupyterlab
+ipykernel
+
+# Numerical exercises and plots
+numpy
+matplotlib
