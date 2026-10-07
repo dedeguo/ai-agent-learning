@@ -27,7 +27,7 @@ ai_basic/
 - 后续有 Agent 完整项目时再创建 `projects/`，有外部数据时再创建 `data/`。
 - 从项目根目录运行代码，例如 `.venv/bin/python exercises/week01/01_vectors_and_matrices.py`。
 
-从[总体学习计划](docs/学习计划.md)查看路线，从[第一周安排](docs/week01/README.md)开始学习。
+从[总体学习计划](docs/学习计划.md)查看路线，从[第一周安排](docs/week01/README.md)开始学习。第二周进入 [Token、Embedding 与 Self-Attention](docs/week02/README.md)。
 
 ## 创建 Python 虚拟环境
 
@@ -109,3 +109,5 @@ python -m ipykernel install --user --name ai-basic --display-name "Python (ai_ba
 ### 停止服务
 
 先保存 Notebook，再回到启动 JupyterLab 的终端，按 **Ctrl + C**，按提示确认关闭服务。关闭浏览器页面不会停止服务。最后执行 `deactivate` 退出虚拟环境。
+
+第三周进入 [Transformer Block](docs/week03/README.md)：多头注意力、位置信息、FFN、残差与 LayerNorm。

@@ -11,6 +11,13 @@
 
 每课顺序：阅读讲解 → 手算小题 → 运行代码 → 修改参数 → 记录理解与疑问。
 
-已整理文档：[第二课：概率、softmax 与损失函数](02_softmax_and_loss.md)。其余课件和练习随学习逐步添加。第一周最终产出为数学基础 Notebook 和训练循环图。
+已整理文档：
+
+- [第一课：标量、向量与矩阵](01_vectors_and_matrices.md)
+- [第二课：概率、softmax 与损失函数](02_softmax_and_loss.md)
+- [第三课：MLP 前向计算](03_mlp_forward.md)
+- [第四课：梯度、学习率与训练循环](04_gradient_descent.md)
+
+其余课件和练习随学习逐步添加。第一周最终产出为数学基础 Notebook 和训练循环图。
 
 进度与复盘记录在 [progress/week01.md](../../progress/week01.md)。

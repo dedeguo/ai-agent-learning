@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="820" viewBox="0 0 1040 820" role="img" aria-labelledby="title desc">
+<title id="title">单头 Self-Attention 计算流程</title><desc id="desc">输入 X 分别投影到 Q、K、V。Q 和 K 转置相乘，缩放后按行 softmax 得到 A，A 与 V 相乘得到输出 O。</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#607080"/></marker></defs>
+<rect width="1040" height="820" rx="24" fill="#f5f7fb"/>
+<g font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" fill="#172b43" text-anchor="middle">
+<text x="520" y="48" font-size="28" font-weight="bold">单头 Self-Attention：先决定权重，再汇总内容</text>
+<text x="520" y="80" font-size="17" fill="#53657b">示例：3 个 token · d_model = 4 · d_k = 2 · d_v = 3</text>
+<rect x="350" y="106" width="340" height="76" rx="12" fill="#e6edf8" stroke="#c3cfdf"/>
+<text x="520" y="137" font-size="21">X：输入 token 表示</text><text x="520" y="163" font-size="17">(3, 4) · 每行一个位置</text>
+<g fill="none" stroke="#607080" stroke-width="2" marker-end="url(#arrow)"><path d="M430 182V210H190V238"/><path d="M520 182V238"/><path d="M610 182V210H850V238"/></g>
+<g font-size="17"><text x="280" y="202">Wq (4, 2)</text><text x="587" y="222">Wk (4, 2)</text><text x="753" y="202">Wv (4, 3)</text></g>
+<rect x="70" y="240" width="240" height="84" rx="12" fill="#e4f1fc" stroke="#bdd3e7"/>
+<rect x="400" y="240" width="240" height="84" rx="12" fill="#e4f1fc" stroke="#bdd3e7"/>
+<rect x="730" y="240" width="240" height="84" rx="12" fill="#e6f4eb" stroke="#b7d8c2"/>
+<text x="190" y="272" font-size="22">Q = XWq</text><text x="190" y="301" font-size="17">查询 · (3, 2)</text>
+<text x="520" y="272" font-size="22">K = XWk</text><text x="520" y="301" font-size="17">键 · (3, 2)</text>
+<text x="850" y="272" font-size="22">V = XWv</text><text x="850" y="301" font-size="17">传递内容 · (3, 3)</text>
+<g fill="none" stroke="#607080" stroke-width="2" marker-end="url(#arrow)"><path d="M190 324V355H340V387"/><path d="M520 324V355H450V387"/></g>
+<rect x="205" y="389" width="380" height="83" rx="12" fill="#fff" stroke="#c3cfdf"/>
+<text x="395" y="420" font-size="22">S = QKᵀ / √d_k</text><text x="395" y="450" font-size="17">匹配分数 (3, 3) · 缩放控制量级</text>
+<path d="M395 472V506" stroke="#607080" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="205" y="508" width="380" height="83" rx="12" fill="#fff1da" stroke="#dfcda9"/>
+<text x="395" y="540" font-size="22">A = softmax(S)，按行</text><text x="395" y="569" font-size="17">权重 (3, 3) · 每行之和为 1</text>
+<g fill="none" stroke="#607080" stroke-width="2" marker-end="url(#arrow)"><path d="M395 591V651"/><path d="M850 324V693H590"/></g>
+<text x="850" y="500" font-size="17">V 不经过 softmax</text><text x="850" y="528" font-size="17">沿右侧路径参与汇总</text>
+<rect x="205" y="653" width="380" height="83" rx="12" fill="#e6f4eb" stroke="#b7d8c2"/>
+<text x="395" y="685" font-size="22">O = AV</text><text x="395" y="714" font-size="17">输出 (3, 3) · 各位置的加权内容</text>
+<text x="520" y="783" font-size="18">O[i] = A[i, 0]V[0] + A[i, 1]V[1] + A[i, 2]V[2]</text>
+</g></svg>
