@@ -2,6 +2,26 @@
 
 学习路线：最小数学与神经网络 → Attention → Transformer → GPT → Agent 与评测。
 
+本项目用于学习大模型与智能体原理，并通过 Python 练习、Notebook 和小型项目巩固理解。基础阶段完成后，结合 CMU 11-768 的视频与 Stanford CS329Z 的作业，构建可运行、可评测的智能体应用。
+
+## 学习路线与文档入口
+
+从[总体学习计划](docs/学习计划.md)了解基础路线与验收标准。默认每周投入 6～8 小时，按掌握程度推进；周次表示学习顺序，不表示已完成进度。
+
+| 阶段 | 内容 | 学习入口 |
+| --- | --- | --- |
+| 第 1 周 | 向量与矩阵、softmax、损失与梯度下降 | [最小数学与神经网络](docs/week01/README.md) |
+| 第 2 周 | Token、Embedding、QKV 与 Self-Attention | [Attention](docs/week02/README.md) |
+| 第 3 周 | 多头注意力、位置表示、FFN、残差与 LayerNorm | [Transformer Block](docs/week03/README.md) |
+| 第 4 周 | GPT、causal mask、下一 token 预测、训练与采样 | [GPT、训练与生成](docs/week04/README.md) |
+| 第 5～8 周 | 工具循环、上下文、检索、记忆、规划与应用原型 | [Agent 课程学习计划](docs/Agent课程学习计划.md) |
+| 第 9～12 周 | 固定评测、对照实验、安全与项目报告 | [Agent 课程学习计划](docs/Agent课程学习计划.md) |
+| 后续选学 | SFT、Agent RL 与研究实验 | [训练选学安排](docs/Agent课程学习计划.md#后续选学-agent-模型训练) |
+
+Agent 阶段采用 **11-768 视频学习原理，CS329Z 作业练习系统开发** 的路线。先实现单 Agent 和固定评测，再按实验需要增加多 Agent 或模型训练。详细计划包含每周任务、完成标准、视频入口与复盘清单；第 5 周之后的材料和目录按实际进度创建。
+
+课程资源：[CMU 11-768 课表与视频](https://www.cmu-agents.com/#/schedule)、[Stanford CS329Z 课表与幻灯片](https://cs329z.stanford.edu/index.html#schedule)、[CS329Z 作业 1](https://github.com/cs329z/assignment1-harness)。两门课程为 2026 秋季课程，材料随授课进度更新；录像访问情况详见学习计划。
+
 ## 目录结构
 
 ```text
@@ -10,7 +30,8 @@ ai_basic/
 ├── requirement.txt           # Python 与 Notebook 依赖
 ├── docs/                     # 学习文档：概念讲解、公式、课程说明
 │   ├── 学习计划.md           # 总体路线与验收标准
-│   └── week01/               # 第一周课程文档
+│   ├── Agent课程学习计划.md  # 第 5～12 周安排、视频与实践任务
+│   └── week01/ ～ week04/    # 已准备的基础阶段课程文档
 ├── exercises/                # 可独立运行的 Python 练习与示例
 │   └── week01/
 ├── notebooks/                # 交互实验、计算过程与可视化
@@ -26,8 +47,6 @@ ai_basic/
 - 学习笔记和复盘放在 `progress/week01.md`；生成的文件放在 `outputs/week01/`。
 - 后续有 Agent 完整项目时再创建 `projects/`，有外部数据时再创建 `data/`。
 - 从项目根目录运行代码，例如 `.venv/bin/python exercises/week01/01_vectors_and_matrices.py`。
-
-从[总体学习计划](docs/学习计划.md)查看路线，从[第一周安排](docs/week01/README.md)开始学习。第二周进入 [Token、Embedding 与 Self-Attention](docs/week02/README.md)。
 
 ## 创建 Python 虚拟环境
 
@@ -82,6 +101,14 @@ deactivate
 
 ## 启动与运行 Notebook
 
+macOS 用户完成虚拟环境创建和依赖安装后，可直接双击项目根目录的 [start_notebook.command](start_notebook.command)，或在终端中运行：
+
+```bash
+./start_notebook.command
+```
+
+脚本自动定位项目根目录，使用 `.venv/bin/python` 启动 JupyterLab，无需手动激活虚拟环境。默认仅监听本机地址 `127.0.0.1`，启动后自动打开浏览器；请保持终端窗口运行。若提示没有执行权限，先执行 `chmod +x start_notebook.command`。可以传入额外参数，例如 `./start_notebook.command --no-browser --port=8889`。
+
 Windows 用户完成虚拟环境创建和依赖安装后，可直接双击项目根目录的 [start_notebook.bat](start_notebook.bat)，或在 PowerShell 中运行：
 
 ```powershell
@@ -127,5 +154,3 @@ python -m ipykernel install --user --name ai-basic --display-name "Python (ai_ba
 ### 停止服务
 
 先保存 Notebook，再回到启动 JupyterLab 的终端，按 **Ctrl + C**，按提示确认关闭服务。关闭浏览器页面不会停止服务。最后执行 `deactivate` 退出虚拟环境。
-
-第三周进入 [Transformer Block](docs/week03/README.md)：多头注意力、位置信息、FFN、残差与 LayerNorm。
