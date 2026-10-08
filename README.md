@@ -64,6 +64,16 @@ python -m pip install --upgrade pip -i https://mirrors.ustc.edu.cn/pypi/simple
 python -m pip install -r requirement.txt -i https://mirrors.ustc.edu.cn/pypi/simple
 ```
 
+
+## 安装torch
+
+通过代理下载
+7897 仅为示例，请替换为代理软件实际的 HTTP 或混合端口
+```bash
+.\.venv\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cu126 --proxy http://127.0.0.1:7897 --timeout 120 --retries 10 --resume-retries 20
+
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu126 --proxy http://127.0.0.1:7897 --timeout 120 --retries 10 --resume-retries 20
+```
 退出虚拟环境：
 
 ```bash
@@ -72,7 +82,15 @@ deactivate
 
 ## 启动与运行 Notebook
 
-在项目根目录打开终端，激活 `.venv` 并完成上述依赖安装后，启动 JupyterLab：
+Windows 用户完成虚拟环境创建和依赖安装后，可直接双击项目根目录的 [start_notebook.bat](start_notebook.bat)，或在 PowerShell 中运行：
+
+```powershell
+.\start_notebook.bat
+```
+
+脚本自动定位项目根目录，使用 `.venv\Scripts\python.exe` 启动 JupyterLab，无需手动激活虚拟环境。默认仅监听本机地址 `127.0.0.1`，启动后自动打开浏览器；请保持脚本窗口运行。若环境或依赖缺失，脚本会提示对应的安装命令。
+
+也可以在项目根目录打开终端，激活 `.venv` 并完成上述依赖安装后，手动启动 JupyterLab：
 
 ```bash
 python -m jupyterlab

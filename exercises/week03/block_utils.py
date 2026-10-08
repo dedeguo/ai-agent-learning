@@ -3,20 +3,6 @@ import numpy as np
 
 X = np.array([[1., 0., 0., 1.], [0., 1., 0., 1.], [1., 1., 0., 0.]])
 
-def layer_norm(x, gamma=1., beta=0., eps=1e-5):
-    mean = x.mean(axis=-1, keepdims=True)
-    var = x.var(axis=-1, keepdims=True)
-    return gamma * (x - mean) / np.sqrt(var + eps) + beta
-
-def positions(n, d_model):
-    pos = np.arange(n)[:, None]
-    rates = 10000. ** (-np.arange(0, d_model, 2) / d_model)
-    angles = pos * rates
-    out = np.zeros((n, d_model))
-    out[:, 0::2] = np.sin(angles)
-    out[:, 1::2] = np.cos(angles[:, :out[:, 1::2].shape[1]])
-    return out
-
 def multi_head(x, heads=2):
     n, d = x.shape
     if heads <= 0 or d % heads:
@@ -35,6 +21,20 @@ def multi_head(x, heads=2):
     concat = np.concatenate(outputs, axis=-1)
     wo = rng.normal(0, .4, (d, d))
     return concat @ wo, np.stack(weights), concat
+
+def layer_norm(x, gamma=1., beta=0., eps=1e-5):
+    mean = x.mean(axis=-1, keepdims=True)
+    var = x.var(axis=-1, keepdims=True)
+    return gamma * (x - mean) / np.sqrt(var + eps) + beta
+
+def positions(n, d_model):
+    pos = np.arange(n)[:, None]
+    rates = 10000. ** (-np.arange(0, d_model, 2) / d_model)
+    angles = pos * rates
+    out = np.zeros((n, d_model))
+    out[:, 0::2] = np.sin(angles)
+    out[:, 1::2] = np.cos(angles[:, :out[:, 1::2].shape[1]])
+    return out
 
 def ffn(x):
     rng = np.random.default_rng(7)
