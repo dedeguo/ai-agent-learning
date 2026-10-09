@@ -33,6 +33,9 @@
 
 每周留下三类证据：能独立解释的概念、可运行的代码、包含失败案例的实验记录。AI 可以辅助解释和调试，但提交到自己的学习项目中的代码应能逐段说明。
 
+b站视频：[11-768 视频](https://www.bilibili.com/video/BV1a6Yx62EH4/?spm_id_from=333.788.recommend_more_video.-1&trackid=web_related_0.router-related-2589621-l95s2.1791457856316.328&vd_source=da1ec379138be98fadc31810b047849a)
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=117240510811659&bvid=BV1a6Yx62EH4&cid=41726051624&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 ## 第 5 周 理解 Agent 并实现工具循环
 
 **材料：**11-768 第 1、2 讲；CS329Z 的 Tool Use 主题。
