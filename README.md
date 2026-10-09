@@ -92,7 +92,17 @@ python -m pip install -r requirement.txt -i https://mirrors.ustc.edu.cn/pypi/sim
 .\.venv\Scripts\python.exe -m pip install torch --index-url https://download.pytorch.org/whl/cu126 --proxy http://127.0.0.1:7897 --timeout 120 --retries 10 --resume-retries 20
 
 pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu126 --proxy http://127.0.0.1:7897 --timeout 120 --retries 10 --resume-retries 20
+
+# cuda 13.0
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu130  --proxy http://127.0.0.1:7897 --timeout 120 --retries 10 --resume-retries 20
 ```
+
+验证安装成功：
+```bash
+python -c "import torch; print('PyTorch:',torch.__version__); print('CUDA:',torch.version.cuda); print('cuDNN:',torch.backends.cudnn.version()); print('GPU:',torch.cuda.is_available())"
+```
+
+
 退出虚拟环境：
 
 ```bash
