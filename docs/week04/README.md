@@ -2,6 +2,8 @@
 
 目标：把第三周的 Block 连成 GPT，理解模型如何预测下一 token，以及训练和生成有什么区别。每课约 60～90 分钟。
 
+后续学习统一以 `notebooks/` 中的 Notebook 为主要载体，将理论讲解、可编辑代码、运行前预测、验证实验和学习记录放在一起，方便逐格运行与调试。第四课已按此方式整合至 [训练阶段与推理 Notebook](../../notebooks/week04/04_training_and_reasoning.ipynb)。
+
 | 课次 | 内容 | 讲义 |
 | --- | --- | --- |
 | 01 | decoder-only 与 causal mask | [GPT 的信息流](01_gpt_and_causal_mask.md) |
