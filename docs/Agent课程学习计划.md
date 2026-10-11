@@ -36,6 +36,11 @@
 b站视频：[11-768 视频](https://www.bilibili.com/video/BV1a6Yx62EH4/?spm_id_from=333.788.recommend_more_video.-1&trackid=web_related_0.router-related-2589621-l95s2.1791457856316.328&vd_source=da1ec379138be98fadc31810b047849a)
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=117240510811659&bvid=BV1a6Yx62EH4&cid=41726051624&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
+https://www.cmu-agents.com/#/schedule
+
+【（B站首推）2026李宏毅智能体【AI Agent】系列课程全集，公认体验感最好的入门课程！--人工智能/机器学习/深度学习/大模型/LLM】   
+https://www.bilibili.com/video/BV1o3wvzUEDD/?p=3&share_source=copy_web&vd_source=7b48d9d0ec121b9bf2da820090056705
+https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php
 ## 第 5 周 理解 Agent 并实现工具循环
 
 **材料：**11-768 第 1、2 讲；CS329Z 的 Tool Use 主题。
